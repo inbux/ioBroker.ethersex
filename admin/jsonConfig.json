@@ -1,0 +1,18 @@
+{
+	"i18n": true,
+	"type": "panel",
+	"items": {
+		"server": {
+			"md": 6,
+			"type": "text",
+			"label": "Server IP",
+			"newLine": true
+		},
+		
+			"interval": {
+				"md": 6,
+				"type": "number",
+				"label": "Polling interval (minutes)",
+				"min":  1		}
+		}
+	}
