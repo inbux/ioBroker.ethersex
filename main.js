@@ -8,7 +8,7 @@ const axios = require('axios').default;
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
-var interval;
+let interval;
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -23,7 +23,7 @@ class Ethersex extends utils.Adapter {
 			name: 'ethersex',
 		});
 
-		this.netio = null;
+		this.netio;
 		this.apiConnected = false;
 		this.devices = [];
 		this.pollingInterval = 5 * 60000;
@@ -45,14 +45,14 @@ class Ethersex extends utils.Adapter {
 		// this.config:
 
 		this.connectToServer();
-		if (this.config.interval) this.pollingInterval = parseInt(this.config.interval) * 60000;
+		if (this.config.interval) this.pollingInterval = this.config.interval * 60000;
 		this.log.info('config Polling interval: ' + this.pollingInterval);
 
 		interval = setInterval(() => {
 			if (!this.apiConnected) {
 				this.connectToServer();
 			} else {
-				for (let i in this.devices) {
+				for (const i in this.devices) {
 					this.readSensorData(this.devices[i]);
 				}
 			}
@@ -92,10 +92,10 @@ class Ethersex extends utils.Adapter {
 			// @ts-ignore
 			const response = await this.netio.get('/ecmd?1w list');
 			this.devices = response.data.split('\n');
-			this.log.debug(this.devices);
+			//this.log.debug(this.devices);
 			this.devices.length = this.devices.length - 2; // OK und leere Zeile loeschen
 
-			for (let i in this.devices) {
+			for (const i in this.devices) {
 				this.log.debug('ID: ' + this.devices[i]);
 				await this.setObjectNotExistsAsync(this.devices[i], {
 					type: 'state',
@@ -111,7 +111,7 @@ class Ethersex extends utils.Adapter {
 				});
 			}
 
-			for (let i in this.devices) {
+			for (const i in this.devices) {
 				this.readSensorData(this.devices[i]);
 			}
 		} catch (err) {
@@ -128,12 +128,14 @@ class Ethersex extends utils.Adapter {
 		try {
 			// @ts-ignore
 			this.log.debug('Reading ' + sensorID);
-			await this.netio.get('/ecmd?1w convert ' + sensorID);
-			const response = await this.netio.get('/ecmd?1w get ' + sensorID);
+			if (this.netio != undefined) {
+				await this.netio.get('/ecmd?1w convert ' + sensorID);
+				const response = await this.netio.get('/ecmd?1w get ' + sensorID);
 
-			this.log.debug(sensorID + ' = ' + response.data + ' °C');
+				this.log.debug(sensorID + ' = ' + response.data + ' °C');
 
-			await this.setStateAsync(sensorID, { val: response.data, ack: true });
+				await this.setStateAsync(sensorID, { val: response.data, ack: true });
+			}
 		} catch (err) {
 			// Set device offline
 			this.apiConnected = false;
