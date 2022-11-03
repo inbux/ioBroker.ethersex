@@ -1,5 +1,5 @@
 'use strict';
-const axios = require('axios').default;
+const axios = require('axios').default || require('axios'); // to avoid error message in vscode
 
 /*
  * Created with @iobroker/create-adapter v2.3.0
