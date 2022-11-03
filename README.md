@@ -34,6 +34,8 @@ The adapter will create objects for all connected 1wire devices.
 
 ### **WORK IN PROGRESS**
 
+-   (inbux) small changes because of axios update
+
 ### 0.0.1 (2022-10-09)
 
 -   (inbux) initial release
