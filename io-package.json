@@ -1,151 +1,164 @@
 {
-    "common": {
-        "name": "ethersex",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
-            }
-        },
-        "title": "Ethersex",
-        "titleLang": {
-            "en": "Ethersex",
-            "de": "Ethersex",
-            "ru": "Этерсекс",
-            "pt": "Ethersex",
-            "nl": "Etherseks",
-            "fr": "Éthersex",
-            "it": "Ethersex",
-            "es": "Ethersex",
-            "pl": "Ethersex",
-            "zh-cn": "乙醚"
-        },
-        "desc": {
-            "en": "Reading 1wire sensor data from ethersex device",
-            "de": "Lesen von 1-Draht-Sensordaten vom Ethersex-Gerät",
-            "ru": "Чтение данных датчика 1wire с устройства ethersex",
-            "pt": "Lendo dados do sensor de 1 fio do dispositivo ethersex",
-            "nl": "Lezen van 1-draads sensorgegevens van ethersex-apparaat",
-            "fr": "Lecture des données du capteur à 1 fil à partir d'un appareil Ethersex",
-            "it": "Lettura dei dati del sensore a 1 filo dal dispositivo ethersex",
-            "es": "Lectura de datos del sensor de 1 cable del dispositivo ethersex",
-            "pl": "Odczytywanie danych czujnika 1wire z urządzenia ethersex",
-            "zh-cn": "从 ethersex 设备读取 1wire 传感器数据"
-        },
-        "authors": [
-            "inbux <inbux.Development@gmail.com>"
-        ],
-        "keywords": [
-            "ethersex",
-            "1wire"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "ethersex.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/inbux/ioBroker.ethersex/main/admin/ethersex.png",
-        "readme": "https://github.com/inbux/ioBroker.ethersex/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "iot-systems",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "ethersex",
+    "version": "0.1.0",
+    "news": {
+      "0.1.0": {
+        "en": "updated dependencies\nmax. devicename is now 16\nsmall changes because of axios update",
+        "de": "aktualisierte abhängigkeiten\nmax. gerätename ist jetzt 16\nkleine änderungen wegen axios update",
+        "ru": "обновленные зависимости\nмакс. имя устройства теперь 16\nнебольшие изменения из-за обновления аксиоса",
+        "pt": "dependências atualizadas\nmax. nome do dispositivo é agora 16\npequenas mudanças por causa da atualização de axios",
+        "nl": "bijgewerkte afhankelijkheden\nmax. apparaatnaam is nu 16\nkleine veranderingen als gevolg van axios update",
+        "fr": "dépendances actualisées\nnombre maximal le nom de l'appareil est maintenant 16\npetits changements en raison de la mise à jour axios",
+        "it": "dipendenze aggiornate\nmax. nome del dispositivo ora 16\npiccoli cambiamenti a causa di aggiornamento assio",
+        "es": "dependencias actualizadas\nmax. nombre de dispositivo ahora 16\npequeños cambios debido a la actualización de axios",
+        "pl": "zaktualizowane zależności\nmax. devicename jest teraz 16\nniewielkie zmiany spowodowane aktualizacją aksjosu",
+        "uk": "оновлені залежності\nмакс. назва пристрою тепер 16\nнезначні зміни через оновлення осей",
+        "zh-cn": "更新的依赖关系\n最大一个。 设备名称现在是 16\n由于 轴更新导致的小变化"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
     },
-    "native": {
-        "server": "",
-        "interval": 5
+    "title": "Ethersex",
+    "titleLang": {
+      "en": "Ethersex",
+      "de": "Ethersex",
+      "ru": "Этерсекс",
+      "pt": "Ethersex",
+      "nl": "Etherseks",
+      "fr": "Éthersex",
+      "it": "Ethersex",
+      "es": "Ethersex",
+      "pl": "Ethersex",
+      "zh-cn": "乙醚"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": {
-                    "en": "Information",
-                    "de": "Information",
-                    "ru": "Информация",
-                    "pt": "Em formação",
-                    "nl": "Informatie",
-                    "fr": "Information",
-                    "it": "Informazione",
-                    "es": "Información",
-                    "pl": "Informacja",
-                    "zh-cn": "信息"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "name": {
-                    "en": "Device or service connected",
-                    "de": "Gerät oder Dienst verbunden",
-                    "ru": "Устройство или служба подключены",
-                    "pt": "Dispositivo ou serviço conectado",
-                    "nl": "Apparaat of service verbonden",
-                    "fr": "Appareil ou service connecté",
-                    "it": "Dispositivo o servizio connesso",
-                    "es": "Dispositivo o servicio conectado",
-                    "pl": "Podłączono urządzenie lub usługę",
-                    "zh-cn": "连接的设备或服务"
-                },
-                "type": "boolean",
-                "role": "indicator.connected",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.version",
-            "type": "state",
-            "common": {
-                "name": {
-                    "en": "Device version",
-                    "de": "Geräteversino",
-                    "ru": "Имя устройства",
-                    "pt": "Nome do dispositivo",
-                    "nl": "Toestelnaam",
-                    "fr": "Nom de l'appareil",
-                    "it": "Nome del dispositivo",
-                    "es": "Nombre del dispositivo",
-                    "pl": "Nazwa urządzenia",
-                    "zh-cn": "设备名称"
-                },
-                "type": "string",
-                "role": "text",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "Reading 1wire sensor data from ethersex device",
+      "de": "Lesen von 1-Draht-Sensordaten vom Ethersex-Gerät",
+      "ru": "Чтение данных датчика 1wire с устройства ethersex",
+      "pt": "Lendo dados do sensor de 1 fio do dispositivo ethersex",
+      "nl": "Lezen van 1-draads sensorgegevens van ethersex-apparaat",
+      "fr": "Lecture des données du capteur à 1 fil à partir d'un appareil Ethersex",
+      "it": "Lettura dei dati del sensore a 1 filo dal dispositivo ethersex",
+      "es": "Lectura de datos del sensor de 1 cable del dispositivo ethersex",
+      "pl": "Odczytywanie danych czujnika 1wire z urządzenia ethersex",
+      "zh-cn": "从 ethersex 设备读取 1wire 传感器数据"
+    },
+    "authors": [
+      "inbux <inbux.Development@gmail.com>"
+    ],
+    "keywords": [
+      "ethersex",
+      "1wire"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "ethersex.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/inbux/ioBroker.ethersex/main/admin/ethersex.png",
+    "readme": "https://github.com/inbux/ioBroker.ethersex/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "iot-systems",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
     ]
+  },
+  "native": {
+    "server": "",
+    "interval": 5
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": {
+          "en": "Information",
+          "de": "Information",
+          "ru": "Информация",
+          "pt": "Em formação",
+          "nl": "Informatie",
+          "fr": "Information",
+          "it": "Informazione",
+          "es": "Información",
+          "pl": "Informacja",
+          "zh-cn": "信息"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Device or service connected",
+          "de": "Gerät oder Dienst verbunden",
+          "ru": "Устройство или служба подключены",
+          "pt": "Dispositivo ou serviço conectado",
+          "nl": "Apparaat of service verbonden",
+          "fr": "Appareil ou service connecté",
+          "it": "Dispositivo o servizio connesso",
+          "es": "Dispositivo o servicio conectado",
+          "pl": "Podłączono urządzenie lub usługę",
+          "zh-cn": "连接的设备或服务"
+        },
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.version",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Device version",
+          "de": "Geräteversino",
+          "ru": "Имя устройства",
+          "pt": "Nome do dispositivo",
+          "nl": "Toestelnaam",
+          "fr": "Nom de l'appareil",
+          "it": "Nome del dispositivo",
+          "es": "Nombre del dispositivo",
+          "pl": "Nazwa urządzenia",
+          "zh-cn": "设备名称"
+        },
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }

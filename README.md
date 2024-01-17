@@ -31,8 +31,7 @@ The adapter will create objects for all connected 1wire devices.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.0 (2024-01-17)
 
 -   (inbux) updated dependencies
 -   (inbux) max. devicename is now 16
