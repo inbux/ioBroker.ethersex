@@ -34,6 +34,7 @@ The adapter will create objects for all connected 1wire devices.
 
 ### **WORK IN PROGRESS**
 
+-   (inbux) updated dependencies
 -   (inbux) small changes because of axios update
 
 ### 0.0.1 (2022-10-09)
@@ -44,7 +45,7 @@ The adapter will create objects for all connected 1wire devices.
 
 MIT License
 
-Copyright (c) 2022 inbux <inbux.development@gmail.com>
+Copyright (c) 2024 inbux <inbux.development@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
