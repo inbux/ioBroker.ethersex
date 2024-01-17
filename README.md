@@ -35,6 +35,7 @@ The adapter will create objects for all connected 1wire devices.
 ### **WORK IN PROGRESS**
 
 -   (inbux) updated dependencies
+-   (inbux) max. devicename is now 16
 -   (inbux) small changes because of axios update
 
 ### 0.0.1 (2022-10-09)
