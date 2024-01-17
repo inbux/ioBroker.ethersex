@@ -97,6 +97,7 @@ class Ethersex extends utils.Adapter {
 
 			for (const i in this.devices) {
 				this.log.debug('ID: ' + this.devices[i]);
+				this.devices[i] = this.devices[i].substring(0, 16);
 				await this.setObjectNotExistsAsync(this.devices[i], {
 					type: 'state',
 					common: {
