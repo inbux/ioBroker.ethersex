@@ -1,6 +1,6 @@
 {
   "name": "iobroker.ethersex",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Reading 1wire sensor data from ethersex device",
   "author": {
     "name": "inbux",
